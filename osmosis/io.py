@@ -505,6 +505,7 @@ def fg_from_trk(trk_file, affine=None):
 
     return ozf.FiberGroup(fibers, affine=aff)
 
+
 def trk_from_fg(fg, trk_file, affine=None):
     """
     Save a trk file from a FiberGroup class instance
@@ -522,6 +523,26 @@ def trk_from_fg(fg, trk_file, affine=None):
 
     raise NotImplementedError
 
+
+def fg_from_mat(mat_file, affine=None):
+    """
+    Get a FiberGroup from a vistasofr fg mat file
+    """
+    mat_dict = sio.loadmat(mat_file, squeeze_me=True)
+
+    fg_arr = mat_dict['fg']
+    fibers=[ozf.Fiber(f) for f in mat_dict['fg']['fibers'].item()]
+    name = mat_dict['fg']['name']
+    color = mat_dict['fg']['colorRgb']
+    thickness = mat_dict['fg']['thickness']
+    FG = ozf.FiberGroup(fibers,
+                        name=name,
+                        color=color,
+                        thickness=thickness,
+                        affine=affine)
+    
+    return FG
+    
 
 def freesurfer_labels():
     """
