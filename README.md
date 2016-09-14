@@ -1,6 +1,8 @@
 # Osmosis
 ## Modeling diffusion data. 
 ---------DY Isaev adjustments for another diffusion model----
+
+
 Osmosis is copyright of the [VISTA lab](http://white.stanford.edu/) at Stanford
 University and is released under the terms of the [CC-BY license](http://creativecommons.org/licenses/by-sa/3.0/)
 
